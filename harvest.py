@@ -86,7 +86,9 @@ def make_melon_type_lookup(melon_types):
         key = a_melon_type.code
         value = a_melon_type
         melon_code_lookup_dict[key] = value
-    print (melon_code_lookup_dict)
+    print(melon_code_lookup_dict)
+    return (melon_code_lookup_dict)
+
 make_melon_type_lookup(make_melon_types())
 
 
@@ -129,7 +131,7 @@ def make_melons(melon_types):
 
     MelonType_code = make_melon_type_lookup(make_melon_types())
 
-    melon_1 = Melon(MelonType_code['yw'],8, 7, 2, "sheila")
+    melon_1 = Melon(MelonType_code['yw'],8, 7, 2, "sheila","melon_1")
     all_melon_types_numbers.append(melon_1)
 
     return  all_melon_types_numbers    
@@ -146,7 +148,7 @@ def get_sellability_report(melons):
     for melon_type_number in melons:
         print("harvested by", melon_type_number.harvest_person , "from Field", melon_type_number.harvest_field)
 
-get_sellability_report(make_melons())        
+get_sellability_report(make_melons(make_melon_types))        
 
 
 
