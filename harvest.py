@@ -97,18 +97,58 @@ make_melon_type_lookup(make_melon_types())
 class Melon(object):
     """A melon in a melon harvest."""
 
+
     # Fill in the rest
     # Needs __init__ and is_sellable methods
+
+    def __init__(self, MelonType_code , shape_rating, color_rating, harvest_field, harvest_person, 
+                 name):
+
+        
+       
+        self.MelonType_code = MelonType_code
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.harvest_field = harvest_field
+        self.harvest_person = harvest_person
+        self.name = name 
+
+    def is_sellable(self,shape_rating,color_rating,harvest_field):
+
+        if self.shape_rating > 5 and self.color_rating > 5 and self.harvest_field != 3:
+            return True
+
+        False
+
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
 
     # Fill in the rest
+    all_melon_types_numbers = []
+
+    MelonType_code = make_melon_type_lookup(make_melon_types())
+
+    melon_1 = Melon(MelonType_code['yw'],8, 7, 2, "sheila")
+    all_melon_types_numbers.append(melon_1)
+
+    return  all_melon_types_numbers    
+
+
+
+
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
     # Fill in the rest 
+
+    for melon_type_number in melons:
+        print("harvested by", melon_type_number.harvest_person , "from Field", melon_type_number.harvest_field)
+
+get_sellability_report(make_melons())        
+
+
 
 
 
